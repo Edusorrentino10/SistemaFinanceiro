@@ -39,3 +39,9 @@ export const formatCurrentMonth = (currentMonth: string): string => {
 
     return `${months[parseInt(month) -1]} ${year}`;
 }
+
+export const newDateFormat = (date: string): Date => {
+    const [year, month, day ] = date.split('-');
+
+    return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+}
