@@ -18,7 +18,9 @@ export const Category = styled.div<{ color: string }>`
     width: 70%;
     text-align: center;
     background-color: ${props => props.color};
-
+    @media(max-width: 610px) {
+        padding: 6px 18px;
+    };
 `
 
 export const Value = styled.div<{ color: string }>`
