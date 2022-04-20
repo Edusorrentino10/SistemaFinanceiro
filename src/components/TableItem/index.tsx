@@ -9,6 +9,8 @@ type TableItemProps = {
 
 export const TableItem = ({ item }: TableItemProps) => {
 
+
+
     return (
         <TableLine>
             <TableColumn>{formatDate(item.date)}</TableColumn>

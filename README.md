@@ -1,7 +1,15 @@
 <h1 align="center" >Sistema Financeiro - Controle Mensal</h1>
 
 Aplicação para ter controle das finanças separadas mensalmente, com o título, o valor, a categoria e a data da transação.
-<p>Foi feita com Typescript, Styled Components e React.</p>
+<p>Foi feita com intuito de praticar as tecnologias, a partir das aulas do professor Bonieky, utilizando React, Typescript e Styled Components.</p>
+<p>Fui além do projeto desenvolvido e adicionei:</p>
+
+* Salvar os dados no `LocalStorage`.
+* `Responsividade`.
+* Tratamento de erros e sucessos com `toast`.
+* Deploy na Netlify.
+
+https://sorrentinofinancas.netlify.app
 
 ## Execução do projeto:
 
@@ -29,8 +37,8 @@ __________________________________________________
 $ npm install @types/styled-components
 ```
 
-<h2 align="center"><img src="./src/images/print-abril.png"></h2>
-<h2 align="center"><img src="./src/images/print-maio.png"></h2>
+<h2 align="center"><img src="./src/images/print-marco.png"></h2>
+<h2 align="center"><img src="./src/images/responsivo.png"></h2>
 
 
 

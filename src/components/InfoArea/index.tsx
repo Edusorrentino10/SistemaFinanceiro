@@ -1,6 +1,7 @@
 import { Container, MonthArea, MonthArrow, MonthTitle, ResumeArea } from './styles';
 import { formatCurrentMonth } from '../../helpers/dateFilter';
 import { ResumeItem } from '../ResumeItem';
+import { toast } from 'react-toastify';
 
 type InfoAreaProps = {
     currentMonth: string;
@@ -23,6 +24,12 @@ export const InfoArea = ({ currentMonth, onMonthChange, income, expense }: InfoA
         let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1 /* O dia pode ser qualquer um */);
         currentDate.setMonth(currentDate.getMonth() + 1);
         onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`);
+    }
+
+    const toastWarning = () => {
+        if(income - expense < 0){
+            toast.warning('Saldo mensal negativado!')
+        }
     }
 
     return (

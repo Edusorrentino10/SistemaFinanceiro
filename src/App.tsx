@@ -1,22 +1,38 @@
 import { useState, useEffect } from 'react';
 import { Body, Container, Header, HeaderText } from './App.styles';
 import { Item } from './types/Item';
-import { Category } from './types/Category';
 import { categories } from './data/categories';
 import { items } from './data/items';
 import { getCurrentMonth, filterListByMonth } from './helpers/dateFilter';
 import { TableArea } from './components/TableArea';
 import { InfoArea } from './components/InfoArea';
 import { InputArea } from './components/InputArea';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const App = () => {
-  
 
-  const [list, setList] = useState(items);
+  const [list, setList] = useState(() => {
+    const storaged = localStorage.getItem('items');
+    if (storaged) {
+      const storagedObject = JSON.parse(storaged);
+      for (let i = 0; i < storagedObject.length; i++) {
+        const json = JSON.stringify(JSON.parse(storaged)[i].date);
+        const date = new Date(JSON.parse(json));
+        storagedObject[i].date = date;
+      }
+      return storagedObject;
+    } else {
+      return items;
+    }
+  });
   const [filteredList, setFilteredList] = useState<Item[]>([]);
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
+
+
+
 
   useEffect(() => {
     setFilteredList(filterListByMonth(list, currentMonth));
@@ -26,8 +42,8 @@ const App = () => {
     let incomeCount = 0;
     let expenseCount = 0;
 
-    for(let i in filteredList) {
-      if(categories[filteredList[i].category].expense) {
+    for (let i in filteredList) {
+      if (categories[filteredList[i].category].expense) {
         expenseCount += filteredList[i].value;
       } else {
         incomeCount += filteredList[i].value;
@@ -47,6 +63,7 @@ const App = () => {
     newList.push(item);
     setList(newList);
 
+    localStorage.setItem('items', JSON.stringify(newList));
   }
 
   return (
@@ -56,18 +73,18 @@ const App = () => {
       </Header>
       <Body>
 
-        <InfoArea 
+        <InfoArea
           currentMonth={currentMonth}
           onMonthChange={handleMonthChange}
           income={income}
           expense={expense}
         />
-          
+
         <InputArea onAdd={handleAddItem} />
 
-        <TableArea list={filteredList} />
-
+        <TableArea filteredList={filteredList} />
       </Body>
+      <ToastContainer autoClose={3500} />
     </Container>
   );
 }

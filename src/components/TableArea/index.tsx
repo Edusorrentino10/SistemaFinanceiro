@@ -1,28 +1,33 @@
-import { Table, TableHeadColumn } from "./styles"
+import { ResponsiveTable, Table, TableHeadColumn } from "./styles"
 import { Item } from '../../types/Item';
 import { TableItem } from '../TableItem';
 
+
 type TableAreaProps = {
-    list: Item[];
+    filteredList: Item[],
+
 }
 
-export const TableArea = ({ list }: TableAreaProps) => {
+export const TableArea = ({ filteredList }: TableAreaProps) => {
 
     return (
-        <Table>
-            <thead>
-                <tr>
-                    <TableHeadColumn width={100}>Data</TableHeadColumn>
-                    <TableHeadColumn width={130}>Categoria</TableHeadColumn>
-                    <TableHeadColumn>Título</TableHeadColumn>
-                    <TableHeadColumn width={150}>Valor</TableHeadColumn>
-                </tr>
-            </thead>
-            <tbody>
-                {list.map((item, index) => (
-                    <TableItem key={index} item={item} />
-                ))}
-            </tbody>
-        </Table>
+        <ResponsiveTable>
+            <Table>
+                <thead>
+                    <tr>
+                        <TableHeadColumn width={130}>Data</TableHeadColumn>
+                        <TableHeadColumn width={130}>Categoria</TableHeadColumn>
+                        <TableHeadColumn>Título</TableHeadColumn>
+                        <TableHeadColumn width={130}>Valor</TableHeadColumn>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {filteredList.map((item, index) => (
+                        <TableItem key={index} item={item} />
+                    ))}
+                </tbody>
+            </Table>
+        </ResponsiveTable>
     )
 }

@@ -3,6 +3,7 @@ import { Item } from '../../types/Item';
 import { categories } from '../../data/categories';
 import { useState } from "react";
 import { newDateFormat } from '../../helpers/dateFilter';
+import { toast } from "react-toastify";
 
 type InputAreaProps = {
     onAdd: (item: Item) => void;
@@ -35,7 +36,10 @@ export const InputArea = ({ onAdd }: InputAreaProps) => {
         }
 
         if (errors.length > 0) {
-            alert(errors.join(', \n'));
+            for (let i in errors) {
+                toast.error(`${errors[i]}`);
+            }
+
         } else {
             let newItem: Item = {
                 date: newDateFormat(dateField),
@@ -44,7 +48,13 @@ export const InputArea = ({ onAdd }: InputAreaProps) => {
                 value: valueField,
             };
             onAdd(newItem);
-            
+            if (categoryField === 'salary') {
+                toast.success('Salário adicionado com sucesso!')
+            } else if (categoryField === 'food') {
+                toast.success('Alimentação adicionada com sucesso!')
+            } else if (categoryField === 'rent') {
+                toast.success('Gasto extra adicionado com sucesso!')
+            }
         }
         clearFields();
     }
