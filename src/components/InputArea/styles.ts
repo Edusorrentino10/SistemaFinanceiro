@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const Form = styled.form`
     display: flex;
     justify-content: space-between;
-    @media(max-width: 610px) {
+    @media(max-width: 780px) {
         flex-direction: column;
         align-items: center;
     }
@@ -23,7 +23,7 @@ export const Input = styled.input<{ type?: string }>`
     border: 2px solid #ccc;
     width: 10rem;
     cursor: ${props => props.type === 'date' ? 'pointer': 'text'};
-    @media(max-width: 610px) {
+    @media(max-width: 780px) {
         width: 59vw;
         padding: ${props => props.type === 'date' ? `6px` : `7px`};
         text-align: center;
@@ -36,7 +36,7 @@ export const InputSelect = styled.select`
     border: 2px solid #ccc;
     width: 10.8rem;
     cursor: pointer;
-    @media(max-width: 610px) {
+    @media(max-width: 780px) {
         width: 63vw;
     }
 `
@@ -45,7 +45,7 @@ export const InputLabel = styled.label`
     display: flex;
     flex-direction: column;
     font-weight: bold;
-    @media(max-width: 610px) {
+    @media(max-width: 780px) {
         text-align: center;
         padding: 0.7rem;
     }
@@ -68,7 +68,7 @@ export const ButtonAdd = styled.button`
     &:hover {
         filter: brightness(0.95);
     }
-    @media(max-width: 610px) {
+    @media(max-width: 780px) {
         width: 63.5vw;
     }
 `

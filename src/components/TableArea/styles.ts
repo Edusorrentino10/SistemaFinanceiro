@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ResponsiveTable = styled.div`
-    @media(max-width: 610px) {
+    @media(max-width: 780px) {
         overflow: hidden;
         overflow-x: auto;
     };
@@ -15,7 +15,7 @@ export const Table = styled.table`
     border-radius: 10px;
     margin-top: 20px;
     
-    @media(max-width: 610px) {
+    @media(max-width: 780px) {
         border-collapse: collapse;
     };
 `;
