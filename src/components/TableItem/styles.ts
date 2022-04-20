@@ -27,3 +27,8 @@ export const Value = styled.div<{ color: string }>`
     color: ${props => props.color};
     min-width: 4rem;
 `
+
+export const RemoveItem = styled.div`
+    cursor: pointer;
+    text-align: center;
+`

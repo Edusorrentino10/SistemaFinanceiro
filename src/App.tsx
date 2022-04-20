@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 const App = () => {
 
-  const [list, setList] = useState(() => {
+  const [list, setList] = useState<Item[]>(() => {
     const storaged = localStorage.getItem('items');
     if (storaged) {
       const storagedObject = JSON.parse(storaged);
@@ -82,7 +82,7 @@ const App = () => {
 
         <InputArea onAdd={handleAddItem} />
 
-        <TableArea filteredList={filteredList} />
+        <TableArea list={list} setList={setList} filteredList={filteredList} />
       </Body>
       <ToastContainer autoClose={3500} />
     </Container>

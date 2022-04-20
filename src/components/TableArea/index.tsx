@@ -4,11 +4,12 @@ import { TableItem } from '../TableItem';
 
 
 type TableAreaProps = {
+    list: Item[],
+    setList: React.Dispatch<React.SetStateAction<Item[]>>,
     filteredList: Item[],
-
 }
 
-export const TableArea = ({ filteredList }: TableAreaProps) => {
+export const TableArea = ({ filteredList, list, setList }: TableAreaProps) => {
 
     return (
         <ResponsiveTable>
@@ -24,7 +25,7 @@ export const TableArea = ({ filteredList }: TableAreaProps) => {
                 </thead>
                 <tbody>
                     {filteredList.map((item, index) => (
-                        <TableItem key={index} item={item} />
+                        <TableItem list={list} setList={setList} key={index} item={item} />
                     ))}
                 </tbody>
             </Table>

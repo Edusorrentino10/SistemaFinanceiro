@@ -7,7 +7,8 @@ Aplicação para ter controle das finanças separadas mensalmente, com o título
 * Salvar os dados no `LocalStorage`.
 * `Responsividade`.
 * Tratamento de erros e sucessos com `toast`.
-* Deploy na Netlify.
+* Opção de remover algum registro cadastrado.
+* Deploy na Netlify:
 
 https://sorrentinofinancas.netlify.app
 

@@ -41,6 +41,7 @@ export const InputArea = ({ onAdd }: InputAreaProps) => {
             }
 
         } else {
+            
             let newItem: Item = {
                 date: newDateFormat(dateField),
                 category: categoryField,
